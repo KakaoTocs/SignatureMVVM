@@ -85,8 +85,10 @@
 		6529161E28F13CB8006244D2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6529162028F13CD3006244D2 /* LifeCycle */,
 				6529163528F13E25006244D2 /* Coordinator */,
 				6568999528F3E9810023B744 /* Model */,
+				6568999A28F3F4380023B744 /* ViewModel */,
 				6529163328F13E15006244D2 /* Service */,
 				6529162128F13D02006244D2 /* ViewController */,
 			);
