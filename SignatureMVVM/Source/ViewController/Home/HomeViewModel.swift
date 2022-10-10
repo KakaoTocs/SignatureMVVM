@@ -8,6 +8,8 @@
 import RxSwift
 import RxRelay
 
+// 현재 Input/State/Output 프로토콜의 역할 없음 or 의미 없음(=있든 없든 차이가 없음)
+// Coordinator 적용 하면서 DI 이전 & View 전환 코드 이전
 protocol HomeViewModelInput {
     var loginButtonTap: PublishRelay<Void> { get }
 }
