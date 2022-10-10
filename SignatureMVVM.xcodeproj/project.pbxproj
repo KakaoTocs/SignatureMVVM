@@ -22,6 +22,7 @@
 		6529163F28F144A6006244D2 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6529163E28F144A6006244D2 /* ViewModelType.swift */; };
 		6568999228F3DEA60023B744 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6568999128F3DEA60023B744 /* RxCocoa */; };
 		6568999428F3DEA60023B744 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6568999328F3DEA60023B744 /* RxSwift */; };
+		6568999728F3E9880023B744 /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568999628F3E9880023B744 /* Developer.swift */; };
 		6568999D28F3F7610023B744 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6568999C28F3F7610023B744 /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		6529163A28F13EF0006244D2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6529163C28F1402C006244D2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		6529163E28F144A6006244D2 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		6568999628F3E9880023B744 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				6529163528F13E25006244D2 /* Coordinator */,
 				6529163428F13E1A006244D2 /* Worker */,
+				6568999528F3E9810023B744 /* Model */,
 				6529163328F13E15006244D2 /* Service */,
 				6529162228F13D12006244D2 /* View */,
 				6529162128F13D02006244D2 /* ViewController */,
@@ -174,12 +177,14 @@
 			sourceTree = "<group>";
 		};
 		6529163528F13E25006244D2 /* Coordinator */ = {
+		6568999528F3E9810023B744 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				6529163928F13EE9006244D2 /* Protocol */,
 				6529163C28F1402C006244D2 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6529163928F13EE9006244D2 /* Protocol */ = {
