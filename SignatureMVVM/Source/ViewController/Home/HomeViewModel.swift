@@ -12,15 +12,19 @@ import RxRelay
 // Coordinator 적용 하면서 DI 이전 & View 전환 코드 이전
 protocol HomeViewModelInput {
     var loginButtonTap: PublishRelay<Void> { get }
+    var detailButtonTap: PublishRelay<Void> { get }
 }
 
 protocol HomeViewModelState {
     var user: BehaviorSubject<Developer?> { get }
+    var presentDetailViewController: BehaviorSubject<Void?> { get }
 }
 
 protocol HomeViewModelOutput {
     var name: Observable<String> { get }
-    var isLogin: Observable<Bool> { get }
+    var loginButtonIsSelected: Observable<Bool> { get }
+    var detailButtonIsEnable: Observable<Bool> { get }
+    var presentDetailViewController: Observable<Void> { get }
 }
 
 final class HomeViewModel: ViewModelType {
@@ -54,10 +58,10 @@ extension HomeViewModel {
     }
     
     struct Input: HomeViewModelInput {
-        let loginButtonTap: PublishRelay<Void>
+        let loginButtonTap: PublishRelay<Void> = .init()
+        let detailButtonTap: PublishRelay<Void> = .init()
         
         init() {
-            self.loginButtonTap = .init()
         }
     }
     
@@ -67,26 +71,45 @@ extension HomeViewModel {
         }
         
         let user: BehaviorSubject<Developer?> = .init(value: nil)
+        let presentDetailViewController: BehaviorSubject<Void?> = .init(value: nil)
+        
+        private let dependency: Dependency
         
         private let disposeBag = DisposeBag()
         
         init(input: HomeViewModelInput, dependency: Dependency) {
-            input.loginButtonTap.map { void in
-                return dependency.loginService.login(void)
+            self.dependency = dependency
+            
+            input.loginButtonTap.map(loginButtonAction(_:))
+                .flatMap { $0 }
+                .bind(to: user)
+                .disposed(by: disposeBag)
+            
+            input.detailButtonTap
+                .bind(to: presentDetailViewController)
+                .disposed(by: disposeBag)
+        }
+        
+        private func loginButtonAction(_ void: Void) -> Observable<Developer?> {
+            if let _ = try? user.value() {
+                return .just(nil)
+            } else {
+                return dependency.loginService.login(())
             }
-            .flatMap { $0 }
-            .bind(to: user)
-            .disposed(by: disposeBag)
         }
     }
     
     struct Output: HomeViewModelOutput {
         let name: Observable<String>
-        let isLogin: Observable<Bool>
+        let loginButtonIsSelected: Observable<Bool>
+        let detailButtonIsEnable: Observable<Bool>
+        let presentDetailViewController: Observable<Void>
 
         init(state: HomeViewModelState) {
             self.name = state.user.map { $0?.name ?? "유저 X" }
-            self.isLogin = state.user.map { $0 != nil }
+            self.loginButtonIsSelected = state.user.map { $0 != nil }
+            self.detailButtonIsEnable = state.user.map { $0 != nil }
+            self.presentDetailViewController = state.presentDetailViewController.compactMap { $0 }
         }
     }
 }
