@@ -8,11 +8,11 @@
 import RxSwift
 
 protocol LoginServiceProtocol {
-    func login(_ void: Void) -> Observable<Developer>
+    func login(_ void: Void) -> Observable<Developer?>
 }
 
 final class LoginServiceStub: LoginServiceProtocol {
-    func login(_ void: Void) -> Observable<Developer> {
-        return .just(.init(name: "GAMZA", isiOSDeveloper: true)).delay(.seconds(3), scheduler: MainScheduler.instance)
+    func login(_ void: Void) -> Observable<Developer?> {
+        return .just(.WindowDeveloper).delay(.seconds(3), scheduler: MainScheduler.instance)
     }
 }
