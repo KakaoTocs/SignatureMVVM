@@ -23,6 +23,7 @@
 		6568999D28F3F7610023B744 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6568999C28F3F7610023B744 /* SnapKit */; };
 		659BE16028FC1048001F3E59 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE15F28FC1048001F3E59 /* RootCoordinator.swift */; };
 		659BE16328FC1156001F3E59 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE16228FC1156001F3E59 /* AppDependency.swift */; };
+		659BE16628FC1960001F3E59 /* Pure in Frameworks */ = {isa = PBXBuildFile; productRef = 659BE16528FC1960001F3E59 /* Pure */; };
 		65A7562F28F55E82004C9B74 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A7562E28F55E82004C9B74 /* UserViewController.swift */; };
 		65A7563128F55E87004C9B74 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A7563028F55E87004C9B74 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				659BE16628FC1960001F3E59 /* Pure in Frameworks */,
 				6568999D28F3F7610023B744 /* SnapKit in Frameworks */,
 				6568999428F3DEA60023B744 /* RxSwift in Frameworks */,
 				6568999228F3DEA60023B744 /* RxCocoa in Frameworks */,
@@ -224,6 +226,7 @@
 				6568999128F3DEA60023B744 /* RxCocoa */,
 				6568999328F3DEA60023B744 /* RxSwift */,
 				6568999C28F3F7610023B744 /* SnapKit */,
+				659BE16528FC1960001F3E59 /* Pure */,
 			);
 			productName = SignatureMVVM;
 			productReference = 6529160728F13CA5006244D2 /* SignatureMVVM.app */;
@@ -256,6 +259,7 @@
 			packageReferences = (
 				6568999028F3DEA60023B744 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				6568999B28F3F7610023B744 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				659BE16428FC195F001F3E59 /* XCRemoteSwiftPackageReference "Pure" */,
 			);
 			productRefGroup = 6529160828F13CA5006244D2 /* Products */;
 			projectDirPath = "";
@@ -523,6 +527,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		659BE16428FC195F001F3E59 /* XCRemoteSwiftPackageReference "Pure" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Pure";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -540,6 +552,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6568999B28F3F7610023B744 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		659BE16528FC1960001F3E59 /* Pure */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 659BE16428FC195F001F3E59 /* XCRemoteSwiftPackageReference "Pure" */;
+			productName = Pure;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
