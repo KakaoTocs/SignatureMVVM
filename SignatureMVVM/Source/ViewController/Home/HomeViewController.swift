@@ -39,6 +39,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Property
     private let viewModel: HomeViewModel
     private let disposeBag = DisposeBag()
+    weak var coordinator: HomeCoordinator?
     
     // MARK: - Init
     init(viewModel: HomeViewModel) {
@@ -94,8 +95,8 @@ final class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.presentDetailViewController
-            .bind { _ in
-                self.presentUserViewController()
+            .bind { developer in
+                self.presentUserViewController(developer: developer)
             }
             .disposed(by: disposeBag)
     }
@@ -110,15 +111,17 @@ final class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func presentUserViewController() {
-        guard let developer = try? viewModel.state.user.value() else {
-            return
-        }
-        let userViewModel = UserViewModel(dependency: .init(), payload: .init(developer: developer))
-        
-        DispatchQueue.main.async {
-            let userViewController = UserViewController(viewModel: userViewModel)
-            self.present(userViewController, animated: true)
-        }
+    private func presentUserViewController(developer: Developer) {
+        coordinator?.pushUserViewController(userViewModelPayload: .init(developer: developer))
+//        guard let developer = try? viewModel.state.user.value() else {
+//            return
+//        }
+//        let userViewModelFactory = viewModel.dependency.userViewModelFactory
+//        let userViewModel = userViewModelFactory.create(payload: .init(developer: developer))
+//
+//        DispatchQueue.main.async {
+//            let userViewController = UserViewController(viewModel: userViewModel)
+//            self.present(userViewController, animated: true)
+//        }
     }
 }

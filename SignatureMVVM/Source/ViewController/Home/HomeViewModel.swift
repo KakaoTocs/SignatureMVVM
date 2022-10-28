@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxRelay
+import Pure
 
 // 현재 Input/State/Output 프로토콜의 역할 없음 or 의미 없음(=있든 없든 차이가 없음)
 // Coordinator 적용 하면서 DI 이전 & View 전환 코드 이전
@@ -24,10 +25,10 @@ protocol HomeViewModelOutput {
     var name: Observable<String> { get }
     var loginButtonIsSelected: Observable<Bool> { get }
     var detailButtonIsEnable: Observable<Bool> { get }
-    var presentDetailViewController: Observable<Void> { get }
+    var presentDetailViewController: Observable<Developer> { get }
 }
 
-final class HomeViewModel: ViewModelType {
+final class HomeViewModel: ViewModelType, FactoryModule {
 
     // MARK: - Property
     let dependency: Dependency
@@ -52,6 +53,7 @@ extension HomeViewModel {
     // MARK: - Declaration
     struct Dependency {
         let loginService: LoginServiceProtocol
+        let userViewModelFactory:UserViewModel.Factory
     }
     
     struct Payload {
@@ -100,16 +102,17 @@ extension HomeViewModel {
     }
     
     struct Output: HomeViewModelOutput {
+        
         let name: Observable<String>
         let loginButtonIsSelected: Observable<Bool>
         let detailButtonIsEnable: Observable<Bool>
-        let presentDetailViewController: Observable<Void>
+        let presentDetailViewController: Observable<Developer>
 
         init(state: HomeViewModelState) {
             self.name = state.user.map { $0?.name ?? "유저 X" }
             self.loginButtonIsSelected = state.user.map { $0 != nil }
             self.detailButtonIsEnable = state.user.map { $0 != nil }
-            self.presentDetailViewController = state.presentDetailViewController.compactMap { $0 }
+            self.presentDetailViewController = state.presentDetailViewController.map { _ in try? state.user.value() }.compactMap { $0 }
         }
     }
 }
