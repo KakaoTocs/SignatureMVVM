@@ -22,6 +22,7 @@
 		6568999D28F3F7610023B744 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6568999C28F3F7610023B744 /* SnapKit */; };
 		659BE16328FC1156001F3E59 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE16228FC1156001F3E59 /* AppDependency.swift */; };
 		659BE16628FC1960001F3E59 /* Pure in Frameworks */ = {isa = PBXBuildFile; productRef = 659BE16528FC1960001F3E59 /* Pure */; };
+		659BE16828FC1D67001F3E59 /* UserViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE16728FC1D67001F3E59 /* UserViewCoordinator.swift */; };
 		659BE16A28FC1D70001F3E59 /* HomeViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659BE16928FC1D70001F3E59 /* HomeViewCoordinator.swift */; };
 		65A7562F28F55E82004C9B74 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A7562E28F55E82004C9B74 /* UserViewController.swift */; };
 		65A7563128F55E87004C9B74 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A7563028F55E87004C9B74 /* UserViewModel.swift */; };
@@ -41,6 +42,7 @@
 		6568999628F3E9880023B744 /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		6568999828F3EA980023B744 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		659BE16228FC1156001F3E59 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		659BE16728FC1D67001F3E59 /* UserViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCoordinator.swift; sourceTree = "<group>"; };
 		659BE16928FC1D70001F3E59 /* HomeViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCoordinator.swift; sourceTree = "<group>"; };
 		65A7562E28F55E82004C9B74 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		65A7563028F55E87004C9B74 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				6529163928F13EE9006244D2 /* Protocol */,
 				659BE16928FC1D70001F3E59 /* HomeViewCoordinator.swift */,
+				659BE16728FC1D67001F3E59 /* UserViewCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				659BE16A28FC1D70001F3E59 /* HomeViewCoordinator.swift in Sources */,
 				65A7563128F55E87004C9B74 /* UserViewModel.swift in Sources */,
 				6568999728F3E9880023B744 /* Developer.swift in Sources */,
+				659BE16828FC1D67001F3E59 /* UserViewCoordinator.swift in Sources */,
 				6529163B28F13EF0006244D2 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
