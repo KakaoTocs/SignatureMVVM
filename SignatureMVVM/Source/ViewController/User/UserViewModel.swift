@@ -9,6 +9,7 @@ import UIKit
 
 import RxSwift
 import RxRelay
+import Pure
 
 protocol UserViewModelInput {
     var closeButtonTap: PublishRelay<Void> { get }
@@ -25,7 +26,7 @@ protocol UserViewModelOutput {
     var popViewController: Observable<Void> { get }
 }
 
-final class UserViewModel: ViewModelType {
+final class UserViewModel: ViewModelType, FactoryModule {
     // MARK: - Property
     let dependency: Dependency
     let payload: Payload

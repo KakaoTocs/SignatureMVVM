@@ -11,9 +11,13 @@ struct AppDependency {
     let homeViewModel: HomeViewModel
     
     static func resolve() -> AppDependency {
+        // Service
         let loginService = LoginServiceStub()
         
-        let homeViewModelDependency = HomeViewModel.Dependency(loginService: loginService)
+        // ViewModel
+        let userViewModelFactory = UserViewModel.Factory(dependency: .init())
+        
+        let homeViewModelDependency = HomeViewModel.Dependency(loginService: loginService, userViewModelFactory: userViewModelFactory)
         let homeViewModelPayload = HomeViewModel.Payload()
         let homeViewModel = HomeViewModel(dependency: homeViewModelDependency, payload: homeViewModelPayload)
 

@@ -30,6 +30,7 @@ final class UserViewController: UIViewController {
     // MARK: - Property
     private let viewModel: UserViewModel
     private let disposeBag = DisposeBag()
+    weak var coordinator: UserViewCoordinator?
     
     // MARK: - Init
     init(viewModel: UserViewModel) {
